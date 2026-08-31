@@ -59,8 +59,8 @@ SENSITIVE_CONFIG_KEYS = {
 SKIPPED_REQUEST_LOG_PATHS = {"/api/health", "/docs", "/redoc", "/openapi.json"}
 SKIPPED_REQUEST_LOG_PREFIXES = ("/requests",)
 
-BUNDLED_LLM_PROVIDERS = ("openai", "anthropic", "gemini")
-BUNDLED_EMBEDDER_PROVIDERS = ("openai", "gemini")
+BUNDLED_LLM_PROVIDERS = ("openai", "anthropic", "gemini", "ollama")
+BUNDLED_EMBEDDER_PROVIDERS = ("openai", "gemini", "ollama")
 
 
 def _warn_if_unconfigured() -> None:
@@ -112,10 +112,10 @@ POSTGRES_USER = os.environ.get("POSTGRES_USER", "postgres")
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD", "postgres")
 POSTGRES_COLLECTION_NAME = os.environ.get("POSTGRES_COLLECTION_NAME", "memories")
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://ollama:11434")
 HISTORY_DB_PATH = os.environ.get("HISTORY_DB_PATH", "/app/history/history.db")
-DEFAULT_LLM_MODEL = os.environ.get("MEM0_DEFAULT_LLM_MODEL", "gpt-5-mini")
-DEFAULT_EMBEDDER_MODEL = os.environ.get("MEM0_DEFAULT_EMBEDDER_MODEL", "text-embedding-3-small")
+DEFAULT_LLM_MODEL = os.environ.get("MEM0_DEFAULT_LLM_MODEL", "gemma4:31b-cloud")
+DEFAULT_EMBEDDER_MODEL = os.environ.get("MEM0_DEFAULT_EMBEDDER_MODEL", "nomic-embed-text")
 
 DEFAULT_CONFIG = {
     "version": "v1.1",
