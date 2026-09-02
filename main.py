@@ -131,10 +131,13 @@ DEFAULT_CONFIG = {
         },
     },
     "llm": {
-        "provider": "openai",
-        "config": {"api_key": OPENAI_API_KEY, "temperature": 0.2, "model": DEFAULT_LLM_MODEL},
+        "provider": "ollama",
+        "config": {"model": DEFAULT_LLM_MODEL, "temperature": 0.2, "ollama_base_url": OLLAMA_BASE_URL},
     },
-    "embedder": {"provider": "openai", "config": {"api_key": OPENAI_API_KEY, "model": DEFAULT_EMBEDDER_MODEL}},
+    "embedder": {
+        "provider": "ollama",
+        "config": {"model": DEFAULT_EMBEDDER_MODEL, "ollama_base_url": OLLAMA_BASE_URL},
+    },
     "history_db_path": HISTORY_DB_PATH,
 }
 
